@@ -96,7 +96,7 @@ public class TestIssue0008_Gimpact {
 		}
 		
         OdeHelper.initODE2(0);
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         space = OdeHelper.createHashSpace();
         DSpace tSpace = OdeHelper.createQuadTreeSpace(
         		new DVector3(nVx/2+dX,nVx/2+dY,1+dZ), 

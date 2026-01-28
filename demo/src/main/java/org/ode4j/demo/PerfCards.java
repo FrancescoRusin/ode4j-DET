@@ -235,7 +235,7 @@ public class PerfCards extends dsFunctions {
 	private void demo(String ... args) {
 		OdeHelper.initODE2(0);
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setGravity(0, 0, -0.5);
 		world.setQuickStepNumIterations(50); // <-- increase for more stability
 

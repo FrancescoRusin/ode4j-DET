@@ -232,7 +232,7 @@ public class DemoConvex extends DrawStuff.dsFunctions {
 
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		space = OdeHelper.createHashSpace();
 		((DHashSpace)space).setLevels(-3, 5);
 		OdeHelper.createPlane(space, 0, 0, 1, 0);    // Add a ground plane.

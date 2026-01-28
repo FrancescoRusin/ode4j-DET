@@ -55,7 +55,7 @@ public class TestIssue0018_NpeInQuickstep {
 
     //@Override
     public void start() {
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         world.setGravity(0, 0, 0);
 
         world.setDamping(1e-4, 1e-5);

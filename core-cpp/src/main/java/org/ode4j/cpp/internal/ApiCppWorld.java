@@ -42,7 +42,7 @@ public abstract class ApiCppWorld extends ApiCppBody {
 	 */
 	//ODE_API
 	public static DWorld dWorldCreate() {
-		return OdeHelper.createWorld();
+		return OdeHelper.createWorld(0);
 	}
 
 

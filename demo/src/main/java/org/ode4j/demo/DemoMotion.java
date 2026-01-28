@@ -488,7 +488,7 @@ public class DemoMotion extends dsFunctions {
 
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		//#if 1
 		space = OdeHelper.createHashSpace();
 		//#elif 0

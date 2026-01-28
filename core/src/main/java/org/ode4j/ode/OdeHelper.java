@@ -515,8 +515,8 @@ public abstract class OdeHelper {
 	 * Create a new, empty world and return its ID number.
 	 * @return an identifier
 	 */
-	public static DWorld createWorld () {
-		return DxWorld.dWorldCreate();
+	public static DWorld createWorld (long seed) {
+		return DxWorld.dWorldCreate(seed);
 	}
 
 	

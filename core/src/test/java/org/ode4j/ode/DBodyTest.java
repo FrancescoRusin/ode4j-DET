@@ -36,7 +36,7 @@ public class DBodyTest {
      */
     @Test
     public void testAddLinearVelocity() {
-        DWorld world = OdeHelper.createWorld();
+        DWorld world = OdeHelper.createWorld(0);
         DBody b = OdeHelper.createBody(world);
         b.addLinearVel(1, 3, 5);
         assertTrue(b.getLinearVel().isEq(1, 3, 5, 0));
@@ -50,7 +50,7 @@ public class DBodyTest {
      */
     @Test
     public void testGetGeomIterator() {
-        DWorld world = OdeHelper.createWorld();
+        DWorld world = OdeHelper.createWorld(0);
         DBody b = OdeHelper.createBody(world);
 
         DGeom g1 = OdeHelper.createBox(1, 1, 1);

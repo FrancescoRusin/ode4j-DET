@@ -136,7 +136,7 @@ public class DemoJoints extends dsFunctions {
 			/* rotation angles */      double a1, double a2)
 	{
 		// create world
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setERP (0.2);
 		world.setCFM (1e-6);
 		world.setGravity (0,0,gravity);

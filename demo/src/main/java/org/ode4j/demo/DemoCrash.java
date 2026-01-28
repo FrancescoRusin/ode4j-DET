@@ -287,7 +287,7 @@ class DemoCrash extends dsFunctions {
 
 		// recreate world
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		//  space = dHashSpaceCreate( null );
 		//	space = dSimpleSpaceCreate( null );

@@ -36,7 +36,7 @@ public class TestIssue0031_RagdollNPE {
 	 */
 	@Test
 	public void testIssue31() {
-		DWorld world = OdeHelper.createWorld();
+		DWorld world = OdeHelper.createWorld(0);
 		world.setGravity(0,0,-9.8);
 		world.setDamping(1e-4, 1e-5);
 		//    dWorldSetERP(world, 1);

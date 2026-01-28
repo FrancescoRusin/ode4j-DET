@@ -175,7 +175,7 @@ class DemoChain2 extends dsFunctions {
 
 		int i;
 		contactgroup = OdeHelper.createJointGroup();
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setGravity (0,0,-0.5);
 		dWorldSetCFM (world,1e-5);
 		OdeHelper.createPlane(space,0,0,1,0);

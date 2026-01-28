@@ -57,7 +57,7 @@ class DxJointAMotor
 
 		FixtureBase()
 		{
-			world = OdeHelper.createWorld();
+			world = OdeHelper.createWorld(0);
 			body = OdeHelper.createBody(world);
 			joint = OdeHelper.createAMotorJoint(world);
 		}

@@ -54,7 +54,7 @@ public class BugsTest {
 
 		/* create world */
 //		OdeHelper.initODE2(0);
-		DWorld world = OdeHelper.createWorld();
+		DWorld world = OdeHelper.createWorld(0);
 		DSpace space = OdeHelper.createHashSpace(null);
 		DJointGroup contactgroup = OdeHelper.createJointGroup ();
 		world.setGravity (0, 0, -0.5);

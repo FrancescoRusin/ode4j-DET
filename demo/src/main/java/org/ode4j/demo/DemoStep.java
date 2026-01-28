@@ -70,7 +70,7 @@ class DemoStep extends dsFunctions {
 		int i,j;
 		if (world != null) world.destroy();
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		// create random bodies
 		for (i=0; i<NUM; i++) {

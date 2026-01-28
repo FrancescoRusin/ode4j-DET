@@ -603,7 +603,7 @@ public class DemoJointPU extends dsFunctions {
 
 		OdeHelper.initODE2(0);
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setERP (0.8);
 
 		space = OdeHelper.createSimpleSpace (null);

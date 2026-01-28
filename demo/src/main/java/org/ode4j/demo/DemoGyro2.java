@@ -98,7 +98,7 @@ public class DemoGyro2 extends dsFunctions {
 		clear();
 
 		// create world
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		// Calculate mass for a box;
 		DMass boxMass = OdeHelper.createMass();

@@ -514,7 +514,7 @@ public class DemoMovingTrimesh extends dsFunctions {
 	{
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		space = OdeHelper.createSimpleSpace();
 		contactgroup = OdeHelper.createJointGroup();

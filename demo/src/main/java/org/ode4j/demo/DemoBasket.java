@@ -233,7 +233,7 @@ public class DemoBasket extends dsFunctions {
 
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		space = OdeHelper.createHashSpace(null);
 
 		contactgroup = OdeHelper.createJointGroup();

@@ -158,7 +158,7 @@ public class DemoJointsTest {
             /* body 1 rotation axis */ double ax2x, double ax2y, double ax2z,
             /* rotation angles */      double a1, double a2) {
         // create world
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         world.setERP(0.2);
         world.setCFM(1e-6);
         world.setGravity(0, 0, gravity);

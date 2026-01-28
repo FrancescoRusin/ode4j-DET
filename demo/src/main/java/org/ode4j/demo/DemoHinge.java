@@ -147,7 +147,7 @@ public class DemoHinge extends dsFunctions {
 	private void demo(String[] args) {
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		DMass m = OdeHelper.createMass();
 		m.setBox (1,SIDE,SIDE,SIDE);

@@ -59,9 +59,12 @@ import org.ode4j.ode.threading.task.Task;
 import org.ode4j.ode.threading.task.TaskExecutor;
 import org.ode4j.ode.threading.task.TaskGroup;
 
+import java.util.Random;
+
 public class DxWorld extends DBase implements DWorld {
 
 	private TaskExecutor taskExecutor = new SameThreadTaskExecutor();
+	private final Random seedGenerator;
 	
 	//TODO
 	public final Ref<DxBody> firstbody = new Ref<DxBody>();
@@ -104,11 +107,11 @@ public class DxWorld extends DBase implements DWorld {
 
     //****************************************************************************
 	// world
-	private DxWorld() {
+	private DxWorld(long seed) {
 		//private
 		super();
-		firstbody.set( null );
-		firstjoint.set( null );
+		firstbody.set(null);
+		firstjoint.set(null);
 		nb = 0;
 		nj = 0;
 		global_erp = Objects_H.dWORLD_DEFAULT_GLOBAL_ERP;
@@ -125,21 +128,21 @@ public class DxWorld extends DBase implements DWorld {
 		max_angular_speed = dInfinity;
 		userdata = 0;
 
-	    //dSetZero (gravity, 4);
+		//dSetZero (gravity, 4);
 		gravity = new DVector3();
-		
+
 		adis = new dxAutoDisable();
 		qs = new dxQuickStepParameters();
 		contactp = new dxContactParameters();
 		dampingp = new dxDampingParameters();
+
+		seedGenerator = new Random(seed);
 	}
 
 
-	public static DxWorld dWorldCreate()
+	public static DxWorld dWorldCreate(long seed)
 	{
-		DxWorld w = new DxWorld();
-
-		return w;
+        return new DxWorld(seed);
 	}
 
 
@@ -396,10 +399,10 @@ public class DxWorld extends DBase implements DWorld {
 
 	    DxWorldProcessIslandsInfo islandsinfo = new DxWorldProcessIslandsInfo();
 	    if (DxWorldProcessContext.dxReallocateWorldProcessContext (this, islandsinfo, stepsize, 
-	            DxQuickStep.INSTANCE))//dxEstimateQuickStepMemoryRequirements))
+	            new DxQuickStep(seedGenerator.nextLong())))//dxEstimateQuickStepMemoryRequirements))
 	    {
 	    	//if (dxProcessIslands (w, islandsinfo, stepsize, &dxQuickStepIsland, &dxEstimateQuickStepMaxCallCount))
-	        if (dxProcessIslands (islandsinfo, stepsize, DxQuickStep.INSTANCE, Step.INSTANCE))
+	        if (dxProcessIslands (islandsinfo, stepsize, new DxQuickStep(seedGenerator.nextLong()), Step.INSTANCE))
 	        {
 	        	result = true;
 	        }

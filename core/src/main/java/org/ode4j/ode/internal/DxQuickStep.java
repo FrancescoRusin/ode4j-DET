@@ -44,6 +44,7 @@ import static org.ode4j.ode.internal.cpp4j.Cstring.memcpy;
 
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.ode4j.math.DMatrix3;
@@ -91,8 +92,16 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 
 	private static final boolean CHECK_VELOCITY_OBEYS_CONSTRAINT = false;
 
-	/** DxQuickStep singleton instance. */
-	public static final DxQuickStep INSTANCE = new DxQuickStep();
+	/* Random generator */
+	private final Random rng;
+
+	public DxQuickStep(long seed) {
+		this.rng = new Random(seed);
+	}
+
+	public DxQuickStep() {
+		this.rng = new Random();
+	}
 
 	private static final boolean TIMING = false;
 	private static void IFTIMING_dTimerStart(String name) {
@@ -974,8 +983,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 	    }
 	}
 
-	private static 
-	void dxQuickStepIsland_Stage1(dxQuickStepperStage1CallContext stage1CallContext)
+	private void dxQuickStepIsland_Stage1(dxQuickStepperStage1CallContext stage1CallContext)
 	{
 		final DxStepperProcessingCallContext callContext = stage1CallContext.m_stepperCallContext;
 		double[] invI = stage1CallContext.m_invI;
@@ -1106,8 +1114,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 		}
 	}
 
-	private static 
-	void dxQuickStepIsland_Stage2aSync(final dxQuickStepperStage2CallContext stage2CallContext, TaskGroup group)
+	private void dxQuickStepIsland_Stage2aSync(final dxQuickStepperStage2CallContext stage2CallContext, TaskGroup group)
 	{
 	    DxStepperProcessingCallContext callContext = stage2CallContext.m_stepperCallContext;
 	    int nb = callContext.m_islandBodiesCount();
@@ -1127,8 +1134,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 	    dxQuickStepIsland_Stage2b(stage2CallContext);
 	}
 
-	private static 
-	void dxQuickStepIsland_Stage2bSync(final dxQuickStepperStage2CallContext stage2CallContext, TaskGroup group)
+	private void dxQuickStepIsland_Stage2bSync(final dxQuickStepperStage2CallContext stage2CallContext, TaskGroup group)
 	{
         DxStepperProcessingCallContext callContext = stage2CallContext.m_stepperCallContext;
         int allowedThreads = callContext.m_stepperAllowedThreads();
@@ -1378,8 +1384,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 	    }
 	}
 
-	private static 
-	void dxQuickStepIsland_Stage2c(dxQuickStepperStage2CallContext stage2CallContext)
+	private void dxQuickStepIsland_Stage2c(dxQuickStepperStage2CallContext stage2CallContext)
 	{
 		final dxQuickStepperLocalContext localContext = stage2CallContext.m_localContext;
 
@@ -1401,8 +1406,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 	    }
 	}
 
-    private static 
-    void dxQuickStepIsland_Stage3(dxQuickStepperStage3CallContext stage3CallContext)
+    private void dxQuickStepIsland_Stage3(dxQuickStepperStage3CallContext stage3CallContext)
     {
         final DxStepperProcessingCallContext callContext = stage3CallContext.m_stepperCallContext;
         final dxQuickStepperLocalContext localContext = stage3CallContext.m_localContext;
@@ -1836,8 +1840,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
         }
     }
 
-    private static
-    void dxQuickStepIsland_Stage4LCP_IterationStartSingleThread(final dxQuickStepperStage4CallContext stage4CallContext)
+    private void dxQuickStepIsland_Stage4LCP_IterationStartSingleThread(final dxQuickStepperStage4CallContext stage4CallContext)
     {
         DxStepperProcessingCallContext callContext = stage4CallContext.m_stepperCallContext;
         DxWorld world = callContext.m_world();
@@ -1852,8 +1855,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 
     }
 
-    private static
-    int dxQuickStepIsland_Stage4LCP_IterationStart(final dxQuickStepperStage4CallContext stage4CallContext)
+    private int dxQuickStepIsland_Stage4LCP_IterationStart(final dxQuickStepperStage4CallContext stage4CallContext)
     {
         DxStepperProcessingCallContext callContext = stage4CallContext.m_stepperCallContext;
 
@@ -1964,8 +1966,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
         return 1;
     }
     
-    private static 
-    void dxQuickStepIsland_Stage4LCP_ConstraintsReordering(dxQuickStepperStage4CallContext stage4CallContext)
+    private void dxQuickStepIsland_Stage4LCP_ConstraintsReordering(dxQuickStepperStage4CallContext stage4CallContext)
     {
         int iteration = stage4CallContext.m_LCP_iteration - 1; // Iteration is pre-incremented before scheduled tasks are released for execution
         if (dxQuickStepIsland_Stage4LCP_ConstraintsShuffling(stage4CallContext, iteration)) {
@@ -1984,8 +1985,7 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 		}
     }
 
-    private static 
-    boolean dxQuickStepIsland_Stage4LCP_ConstraintsShuffling(dxQuickStepperStage4CallContext stage4CallContext, int iteration)
+    private boolean dxQuickStepIsland_Stage4LCP_ConstraintsShuffling(dxQuickStepperStage4CallContext stage4CallContext, int iteration)
     {
         boolean result = false;
 		// #if CONSTRAINTS_REORDERING_METHOD == REORDERING_METHOD__BY_ERROR
@@ -2121,11 +2121,11 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
         return result;
     }
 
-	private static void ConstraintsReorderingHelper(dxQuickStepperStage4CallContext stage4CallContext, int startIndex,
+	private void ConstraintsReorderingHelper(dxQuickStepperStage4CallContext stage4CallContext, int startIndex,
 			int indicesCount) {
 		IndexError[] order = stage4CallContext.m_order;
 		for (int index = 1; index < indicesCount; ++index) {
-			int swapIndex = dRandInt(index + 1);
+			int swapIndex = rng.nextInt(index + 1);
 			IndexError tmp = order[startIndex + index];
 			order[startIndex + index] = order[startIndex + swapIndex];
 			order[startIndex + swapIndex] = tmp;
@@ -2929,6 +2929,4 @@ dmemestimate_fn_t, dmaxcallcountestimate_fn_t {
 	public void run(DxStepperProcessingCallContext callContext) {
 		dxQuickStepIsland(callContext);
 	}
-
-	private DxQuickStep() {}
 }

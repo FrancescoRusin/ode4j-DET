@@ -189,7 +189,7 @@ public class DemoTracks extends dsFunctions {
     public void start() {
     	//dAllocateODEDataForThread(dAllocateMaskAll);
 
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         world.setGravity (0,0,-9.8);
 
         contact_group = OdeHelper.createJointGroup();

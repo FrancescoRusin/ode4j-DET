@@ -165,7 +165,7 @@ public class DemoTransmission extends dsFunctions {
 	public void start() {
 		DMass mass = OdeHelper.createMass();
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setGravity(0,0,-9.8);
 
 		world.setERP(0.2);

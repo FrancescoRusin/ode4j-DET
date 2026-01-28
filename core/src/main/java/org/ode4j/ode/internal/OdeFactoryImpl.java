@@ -254,7 +254,7 @@ public class OdeFactoryImpl extends OdeJointsFactoryImpl {
 		for (i=0; i<NUM; i++) joint[i] = null;
 
 		DO_printf ("creating world\n");
-		DxWorld w = DxWorld.dWorldCreate();
+		DxWorld w = DxWorld.dWorldCreate(0);
 		checkWorld (w);
 
 		for (int round = 0; round < 1000; ++round) {

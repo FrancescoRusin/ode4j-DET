@@ -91,7 +91,7 @@ public class TestIssue0079_TriMeshCallback {
     @Before
     public void beforeTest() {
         OdeHelper.initODE2(0);
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         space = OdeHelper.createSapSpace(DSapSpace.AXES.XYZ);
         contactgroup = OdeHelper.createJointGroup();
     }

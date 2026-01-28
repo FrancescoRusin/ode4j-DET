@@ -199,7 +199,7 @@ public class DemoGyroscopic extends dsFunctions {
 	private void demo(String[] args) {
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setGravity(0,0,-0.5f);
 		world.setCFM(1e-5f);
 		world.setLinearDamping(0.00001f);

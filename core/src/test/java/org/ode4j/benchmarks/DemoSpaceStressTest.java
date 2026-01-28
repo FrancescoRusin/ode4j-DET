@@ -281,7 +281,7 @@ public class DemoSpaceStressTest {
         nextobj = 0;
         // create world
         OdeHelper.initODE2(0);
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         contactgroup = OdeHelper.createJointGroup();
     }
 

@@ -171,7 +171,7 @@ public class DemoMotor extends dsFunctions {
 		// create world
 		OdeHelper.initODE2(0);
 		contactgroup = OdeHelper.createJointGroup();
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		space = OdeHelper.createSimpleSpace (null);
 		DMass m = OdeHelper.createMass();
 		m.setBox (1,SIDE,SIDE,SIDE);

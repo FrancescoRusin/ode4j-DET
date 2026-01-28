@@ -50,7 +50,7 @@ public class TestIssue0139_MultiDestroy {
         double ballRadius = 5.0;
         double ballMass = 23.0;
         contactGroup = OdeHelper.createJointGroup();
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         world.setGravity(0, 0, -9.81);
         DSpace space = OdeHelper.createSimpleSpace();
         DBody ballBody = OdeHelper.createBody(world);

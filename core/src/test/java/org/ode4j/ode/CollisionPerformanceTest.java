@@ -68,7 +68,7 @@ public class CollisionPerformanceTest {
     @Before
     public void beforeTest() {
         OdeHelper.initODE2(0);
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
         space = createSpace();
         contactgroup = OdeHelper.createJointGroup();
         // world.setGravity (0,0,-0.5);

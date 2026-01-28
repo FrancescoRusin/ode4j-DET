@@ -72,7 +72,7 @@ public class FrictionJointContact extends TestSuperClass
 	@Before
         public void FrictionJointContact_init()
         {
-            world = OdeHelper.createWorld();
+            world = OdeHelper.createWorld(0);
             body1 = OdeHelper.createBody(world);
             body2 = OdeHelper.createBody(world);
 

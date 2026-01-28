@@ -39,7 +39,7 @@ public class TestIssue0019_BodyRemove {
 	@Test
 	public void testDestroyFirst() {
 		OdeHelper.initODE2(0);
-		DWorld world = OdeHelper.createWorld();
+		DWorld world = OdeHelper.createWorld(0);
 		DBody body = OdeHelper.createBody(world);
 		DSphere geom1 = OdeHelper.createSphere(1);
 		DSphere geom2 = OdeHelper.createSphere(1);
@@ -63,7 +63,7 @@ public class TestIssue0019_BodyRemove {
 	@Test
 	public void testDestroyMiddle() {
 		OdeHelper.initODE2(0);
-		DWorld world = OdeHelper.createWorld();
+		DWorld world = OdeHelper.createWorld(0);
 		DBody body = OdeHelper.createBody(world);
 		DSphere geom1 = OdeHelper.createSphere(1);
 		DSphere geom2 = OdeHelper.createSphere(1);
@@ -87,7 +87,7 @@ public class TestIssue0019_BodyRemove {
 	@Test
 	public void testDestroyLast() {
 		OdeHelper.initODE2(0);
-		DWorld world = OdeHelper.createWorld();
+		DWorld world = OdeHelper.createWorld(0);
 		DBody body = OdeHelper.createBody(world);
 		DSphere geom1 = OdeHelper.createSphere(1);
 		DSphere geom2 = OdeHelper.createSphere(1);

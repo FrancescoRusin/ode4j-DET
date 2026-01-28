@@ -406,7 +406,7 @@ public class DemoSpaceStress extends dsFunctions {
 
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		for (int i=1; i<args.length; ++i) {
 			String arg = args[i];

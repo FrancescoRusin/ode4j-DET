@@ -451,7 +451,7 @@ class DemoTrimesh extends dsFunctions {
 	private void demo (String[] args) {
 		// create world
 		OdeHelper.initODE2(0);
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 
 		space = OdeHelper.createSimpleSpace();
 		contactgroup = OdeHelper.createJointGroup();

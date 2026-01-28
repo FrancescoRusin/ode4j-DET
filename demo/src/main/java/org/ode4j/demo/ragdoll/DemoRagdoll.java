@@ -60,7 +60,7 @@ public class DemoRagdoll extends dsFunctions {
 		dsSetViewpoint (xyz,hpr);
 		System.out.println ("Press space to apply some force to the ragdoll");
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setGravity(0,0,-9.8);
 		world.setDamping(1e-4, 1e-5);
 		//    dWorldSetERP(world, 1);

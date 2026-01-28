@@ -6,7 +6,7 @@ public class TestIssue0017_NpeInSetTorques {
 
 	@Test
 	public void test() {
-		DWorld w = OdeHelper.createWorld();
+		DWorld w = OdeHelper.createWorld(0);
 		DAMotorJoint j = OdeHelper.createAMotorJoint(w);
 		j.attach(OdeHelper.createBody(w), OdeHelper.createBody(w));
 		j.setNumAxes(3);

@@ -728,7 +728,7 @@ class DemoPiston extends dsFunctions {
 			}
 //		}
 
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		world.setERP (0.8);
 
 		space = dSimpleSpaceCreate (null);

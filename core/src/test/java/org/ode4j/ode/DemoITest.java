@@ -118,7 +118,7 @@ public class DemoITest {
         }
 
         if (world != null) world.destroy();
-        world = OdeHelper.createWorld();
+        world = OdeHelper.createWorld(0);
 
         anchor_body = OdeHelper.createBody(world);
         anchor_body.setPosition(pos1);

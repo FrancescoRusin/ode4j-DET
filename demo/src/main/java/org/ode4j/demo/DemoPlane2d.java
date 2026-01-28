@@ -267,7 +267,7 @@ class DemoPlane2d extends dsFunctions {
 		err_reduct =  0.5 ;
 		cf_mixing =  0.001 ;
 		//TZ
-		g_globals_ptr.dyn_world = OdeHelper.createWorld();
+		g_globals_ptr.dyn_world = OdeHelper.createWorld(0);
 		g_globals_ptr.dyn_world.setERP (err_reduct);
 		g_globals_ptr.dyn_world.setCFM (cf_mixing);
 		g_globals_ptr.dyn_world.setGravity (0, 0.0, -1.0);

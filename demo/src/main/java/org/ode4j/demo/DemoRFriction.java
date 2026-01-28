@@ -160,7 +160,7 @@ public class DemoRFriction extends dsFunctions {
 		clear();
 
 		// create world
-		world = OdeHelper.createWorld();
+		world = OdeHelper.createWorld(0);
 		space = OdeHelper.createHashSpace();
 		contactgroup = OdeHelper.createJointGroup();
 		world.setGravity (0,0,-GRAVITY);

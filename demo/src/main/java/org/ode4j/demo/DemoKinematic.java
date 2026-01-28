@@ -239,7 +239,7 @@ public class DemoKinematic extends dsFunctions {
 	    joints = OdeHelper.createJointGroup();
 	    ground = OdeHelper.createPlane(space, 0, 0, 1, 0);
 	    
-	    world = OdeHelper.createWorld();
+	    world = OdeHelper.createWorld(0);
 	    world.setGravity(0, 0, -.5);
 	    
 	    kbody = OdeHelper.createBody(world);
